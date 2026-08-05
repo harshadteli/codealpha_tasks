@@ -1,0 +1,125 @@
+/* ============================================================
+   AI Smart Translator — Animations & Micro-interactions
+   ============================================================ */
+
+/* ── Fade-in ─────────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Slide up ────────────────────────────────────────────── */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* ── Slide in from left ──────────────────────────────────── */
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 1; transform: translateX(0);     }
+}
+
+/* ── Slide in from right ─────────────────────────────────── */
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to   { opacity: 1; transform: translateX(0);    }
+}
+
+/* ── Scale pop ───────────────────────────────────────────── */
+@keyframes scalePop {
+  0%   { transform: scale(0.8); opacity: 0; }
+  70%  { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ── Pulse ───────────────────────────────────────────────── */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.08); }
+}
+
+/* ── Shimmer (skeleton loader) ───────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -1000px 0; }
+  100% { background-position:  1000px 0; }
+}
+
+/* ── Spin ────────────────────────────────────────────────── */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Bounce ──────────────────────────────────────────────── */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-6px); }
+}
+
+/* ── Typing cursor blink ─────────────────────────────────── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── Ripple ──────────────────────────────────────────────── */
+@keyframes ripple {
+  to { transform: scale(4); opacity: 0; }
+}
+
+/* ── Toast slide-in ──────────────────────────────────────── */
+@keyframes toastIn {
+  from { opacity: 0; transform: translateX(100px); }
+  to   { opacity: 1; transform: translateX(0);     }
+}
+
+@keyframes toastOut {
+  from { opacity: 1; transform: translateX(0);     }
+  to   { opacity: 0; transform: translateX(100px); }
+}
+
+/* ── Gradient shift (hero bg) ────────────────────────────── */
+@keyframes gradientShift {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+/* ── Dot wave (typing indicator) ────────────────────────── */
+@keyframes dotWave {
+  0%, 80%, 100% { transform: translateY(0);    }
+  40%            { transform: translateY(-8px); }
+}
+
+/* ── Mic recording ring ──────────────────────────────────── */
+@keyframes micRing {
+  0%   { box-shadow: 0 0 0 0   rgba(234, 67, 53, 0.5); }
+  70%  { box-shadow: 0 0 0 14px rgba(234, 67, 53, 0);   }
+  100% { box-shadow: 0 0 0 0   rgba(234, 67, 53, 0);    }
+}
+
+/* ── Utility animation classes ───────────────────────────── */
+.anim-fade-in    { animation: fadeIn   0.35s ease both; }
+.anim-slide-up   { animation: slideUp  0.4s  ease both; }
+.anim-scale-pop  { animation: scalePop 0.4s  cubic-bezier(0.175, 0.885, 0.32, 1.275) both; }
+.anim-spin       { animation: spin     1s    linear infinite; }
+.anim-pulse      { animation: pulse    1.5s  ease-in-out infinite; }
+.anim-bounce     { animation: bounce   1s    ease-in-out infinite; }
+
+/* ── Shimmer skeleton ────────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(90deg,
+    var(--surface-2) 25%,
+    var(--surface-3) 37%,
+    var(--surface-2) 63%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 1.4s infinite linear;
+  border-radius: var(--radius-sm);
+}
+
+/* ── Transition helpers ──────────────────────────────────── */
+.transition-fast   { transition: all 0.15s ease; }
+.transition-normal { transition: all 0.25s ease; }
+.transition-slow   { transition: all 0.4s  ease; }
