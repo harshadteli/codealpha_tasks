@@ -1,8 +1,9 @@
 ## AI Smart Translator
 
 AI Smart Translator is a browser-based web app for fast, AI-enhanced language translation. It includes voice input, text-to-speech, OCR-based image text extraction, grammar checking, AI summarization, and a responsive chatbot UI.
+
 <center>
-<img src="./assets/IMAGES/logo.png" width="100%" height="auto"/>
+  <img src="./assets/IMAGES/logo.png" width="auto" height="500px"/>
 </center>
 <p align="center">
   <a href="https://aitranslatorlan.vercel.app/">
