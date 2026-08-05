@@ -259,6 +259,58 @@
         </svg>
         About Developer
       </button>
+
+      <button class="download-btn" id="downloadAppBtn" role="button">
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+  </svg>
+  <span>Download App</span>
+</button>
+
+<style>
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .download-btn svg {
+    transition: transform 0.3s ease;
+  }
+
+  .download-btn:hover {
+    background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .download-btn:hover svg {
+    transform: translateY(2px);
+  }
+
+  .download-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(99, 102, 241, 0.3);
+  }
+</style>
+
+<script>
+  document.getElementById('downloadAppBtn').addEventListener('click', function() {
+    window.location.href = 'https://github.com/harshadteli/codealpha_tasks/releases/tag/v1.0.0';
+  });
+</script>
+      
     </div>
   </div>
 
