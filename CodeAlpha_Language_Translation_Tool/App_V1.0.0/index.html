@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AI Smart Translator — Translate text instantly in 100+ languages with voice input, OCR, grammar check, AI summary, and a built-in chatbot." />
+  <meta name="keywords" content="translator, AI translator, language translation, text to speech, voice input, grammar check, OCR" />
+  <meta name="author" content="AI Smart Translator" />
+  <meta property="og:title" content="AI Smart Translator" />
+  <meta property="og:description" content="Smart translation with AI-powered features: auto-detect, voice input, TTS, OCR, grammar check, and more." />
+  <title>AI Smart Translator — Mobile Layout</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://aitranslatorlan.vercel.app/assets/IMAGES/logo.png" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://aitranslatorlan.vercel.app/assets/CSS/animations.css" />
+  <link rel="stylesheet" href="https://aitranslatorlan.vercel.app/assets/CSS/styles.css" />
+  <link rel="stylesheet" href="https://aitranslatorlan.vercel.app/assets/CSS/chatbot.css" />
+
+  <!-- Tesseract.js (OCR) from CDN -->
+  <script src="https://unpkg.com/tesseract.js@5/dist/tesseract.min.js"></script>
+
+  <style>
+    /* ── Mobile Layout Style Overrides ──────────────────────── */
+    
+    /* Top Header Bar */
+    .app-header {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: var(--surface-1);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      z-index: 100;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    }
+    
+    .app-header .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    
+    .app-header .nav-logo {
+      height: 34px;
+      width: auto;
+    }
+    
+    .app-header .nav-title {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    
+    .app-header .nav-title span {
+      color: var(--primary);
+    }
+
+    #theme-toggle {
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.25s;
+    }
+    
+    #theme-toggle:hover {
+      background: var(--surface-2);
+    }
+
+    /* Hide standard top navigation elements */
+    .navbar, .tab-bar {
+      display: none !important;
+    }
+
+    /* Padding for main content to avoid bottom-nav overlapping */
+    .main-content {
+      padding-bottom: 84px !important;
+      padding-top: 16px !important;
+      min-height: calc(100vh - 60px - 84px);
+    }
+
+    /* Mobile Bottom Navigation Bar */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 66px;
+      background: var(--surface-1);
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0 4px;
+      z-index: 1000;
+      box-shadow: 0 -3px 12px rgba(0,0,0,0.06);
+    }
+
+    .bottom-nav button {
+      flex: 1;
+      height: 100%;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 500;
+      transition: color 0.2s, background 0.2s;
+      position: relative;
+      padding: 4px 0;
+    }
+
+    .bottom-nav button svg {
+      width: 22px;
+      height: 22px;
+      transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .bottom-nav button:hover {
+      color: var(--primary);
+    }
+
+    .bottom-nav button:hover svg {
+      transform: translateY(-2px);
+    }
+
+    .bottom-nav button.active {
+      color: var(--primary);
+    }
+
+    .bottom-nav button.active::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 20%;
+      right: 20%;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 0 0 4px 4px;
+    }
+
+    /* Re-position Chatbot FAB & Panel to clear the bottom navigation */
+    #chatbot-fab {
+      bottom: 86px !important;
+      right: 20px !important;
+    }
+
+    #chatbot-panel {
+      bottom: 156px !important;
+      right: 20px !important;
+    }
+
+    /* Adjust main content containers */
+    .translator-card {
+      margin-bottom: var(--sp-6);
+    }
+
+    @media (max-width: 480px) {
+      .bottom-nav button {
+        font-size: 10px;
+      }
+      .bottom-nav button svg {
+        width: 20px;
+        height: 20px;
+      }
+      .main-content {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════
+       APP HEADER
+  ═══════════════════════════════════════════════════════ -->
+  <header class="app-header">
+    <a href="#" class="nav-brand" aria-label="AI Smart Translator home">
+      <img src="https://aitranslatorlan.vercel.app/assets/IMAGES/logo.png" alt="AI Smart Translator Logo" class="nav-logo" />
+      <span class="nav-title">AI Smart <span>Translator</span></span>
+    </a>
+    <button id="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+        <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5z"/>
+      </svg>
+    </button>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════
+       MAIN CONTENT (Panels matched to Bottom Navigation Tabs)
+  ═══════════════════════════════════════════════════════ -->
+  <main class="main-content" id="main-content">
+
+    <!-- ─────────────────────────────────────────────────────
+         TRANSLATOR PANEL
+    ───────────────────────────────────────────────────── -->
+    <section data-panel="translator" class="active" role="tabpanel" aria-labelledby="tab-translator" id="panel-translator">
+
+      <!-- Feature quick-action cards -->
+      <div class="feature-row">
+        <div class="feature-card">
+          <div class="feature-card-icon icon-blue">🔤</div>
+          <h3>Auto Detect</h3>
+          <p>Automatically identifies the source language of your text.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-icon icon-green">🎙️</div>
+          <h3>Voice Input</h3>
+          <p>Speak to translate. Click the mic icon in the text panel.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-icon icon-yellow">🔊</div>
+          <h3>Text to Speech</h3>
+          <p>Listen to your translation & download the audio file.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-icon icon-purple">⚡</div>
+          <h3>Live Translate</h3>
+          <p>Translation updates in real-time as you type.</p>
+        </div>
+      </div>
+
+      <!-- Translator card -->
+      <div class="translator-card">
+
+        <!-- Language selector bar -->
+        <div class="lang-bar" role="group" aria-label="Language selection">
+          <!-- Source language -->
+          <div class="lang-select-wrap">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="color:var(--text-muted);flex-shrink:0">
+              <path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0014.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04z"/>
+            </svg>
+            <select id="source-lang" class="lang-select" aria-label="Source language">
+              <option value="auto">Auto Detect</option>
+            </select>
+            <span id="detected-lang" class="detected-badge" aria-live="polite"></span>
+          </div>
+
+          <!-- Swap button -->
+          <button id="swap-btn" class="swap-btn" title="Swap languages" aria-label="Swap source and target languages">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M6.99 11L3 15l3.99 4v-3H14v-2H6.99v-3zM21 9l-3.99-4v3H10v2h7.01v3L21 9z"/>
+            </svg>
+          </button>
+
+          <!-- Target language -->
+          <div class="lang-select-wrap" style="justify-content:flex-end">
+            <select id="target-lang" class="lang-select" aria-label="Target language">
+              <option value="es">Spanish</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Text panels -->
+        <div class="text-panels">
+          <!-- Source -->
+          <div class="text-panel">
+            <div class="text-panel-toolbar">
+              <!-- Voice input -->
+              <button id="voice-input-btn" class="btn-icon" aria-label="Start voice input" title="Voice input (mic)">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1-9c0-.55.45-1 1-1s1 .45 1 1v6c0 .55-.45 1-1 1s-1-.45-1-1V5zm6 6c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+                </svg>
+              </button>
+              <!-- Copy source -->
+              <button id="copy-source-btn" class="btn-icon" aria-label="Copy source text" title="Copy source text">
+                <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+                  <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                </svg>
+              </button>
+              <!-- Clear source -->
+              <button id="clear-source" class="btn-icon" aria-label="Clear source text" title="Clear text" style="margin-left:auto">
+                <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+                  <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                </svg>
+              </button>
+            </div>
+            <textarea
+              id="source-text"
+              class="text-area"
+              placeholder="Enter text to translate…"
+              aria-label="Source text"
+              spellcheck="false"
+              maxlength="5000"
+            ></textarea>
+            <div class="text-panel-footer">
+              <div class="counter-info" aria-live="polite">
+                <strong id="char-count">0</strong> / <span id="max-chars">5000</span> chars &nbsp;|&nbsp;
+                <strong id="word-count">0</strong> words
+              </div>
+              <div class="live-toggle-wrap">
+                <span>Live</span>
+                <label class="toggle-switch" title="Enable live translation">
+                  <input type="checkbox" id="live-toggle" aria-label="Live translate toggle" />
+                  <span class="slider"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Target -->
+          <div class="text-panel">
+            <div class="text-panel-toolbar">
+              <!-- TTS play button -->
+              <button id="tts-btn" class="btn-icon" aria-label="Speak translation" title="Text-to-speech">
+                <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+                  <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                </svg>
+              </button>
+              <!-- Download audio -->
+              <button id="download-audio-btn" class="btn-icon" aria-label="Download translation audio" title="Download audio">
+                <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+                  <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                </svg>
+              </button>
+              <!-- Copy translation -->
+              <button id="copy-translated" class="btn-icon" aria-label="Copy translated text" title="Copy translation" style="margin-left:auto">
+                <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+                  <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                </svg>
+              </button>
+            </div>
+            <textarea
+              id="translated-text"
+              class="text-area"
+              placeholder="Translation will appear here…"
+              aria-label="Translated text"
+              readonly
+            ></textarea>
+            <div class="text-panel-footer">
+              <div id="summary-trigger-hint" style="font-size:12px;color:var(--text-muted)">
+                Powered by Google Translate
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action row -->
+        <div class="translate-actions">
+          <button id="translate-btn" class="btn-primary" aria-label="Translate text">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0014.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/>
+            </svg>
+            Translate
+          </button>
+
+          <button id="grammar-check-btn" class="btn-secondary" aria-label="Check grammar">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+              <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
+            </svg>
+            Check Grammar
+          </button>
+
+          <button id="summary-btn" class="btn-secondary" aria-label="Generate AI summary">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+            </svg>
+            AI Summary
+          </button>
+
+          <button id="share-btn" class="btn-secondary" aria-label="Share translation">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+              <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92 0-1.61-1.31-2.92-2.92-2.92z"/>
+            </svg>
+            Share
+          </button>
+
+          <span class="kbd-hint" title="Keyboard shortcut">
+            <kbd>Ctrl</kbd>+<kbd>Enter</kbd> to translate
+          </span>
+        </div>
+      </div>
+
+      <!-- Summary result (shown inline after AI Summary) -->
+      <div class="summary-section" id="summary-section" style="display:none">
+        <div id="summary-result"></div>
+      </div>
+
+    </section>
+
+    <!-- ─────────────────────────────────────────────────────
+         GRAMMAR CHECK PANEL
+    ───────────────────────────────────────────────────── -->
+    <section data-panel="grammar" role="tabpanel" aria-labelledby="tab-grammar" id="panel-grammar">
+      <div class="grammar-section">
+        <h2 class="section-title">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" style="color:var(--primary)">
+            <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
+          </svg>
+          Grammar Check
+          <span id="grammar-badge">0</span>
+        </h2>
+        <p style="color:var(--text-secondary);margin-bottom:var(--sp-4);font-size:14px">
+          Analyzes the source text for grammar and spelling errors using LanguageTool (free, no API key needed).
+        </p>
+        <div style="display:flex;gap:var(--sp-3);align-items:center;margin-bottom:var(--sp-5);flex-wrap:wrap">
+          <button id="grammar-check-btn" class="btn-primary">Check Grammar</button>
+          <span style="font-size:13px;color:var(--text-muted)">Tip: Enter text in the Translator first</span>
+        </div>
+        <div id="grammar-results">
+          <div class="history-empty" style="padding:var(--sp-8) 0">
+            <div class="history-empty-icon">📝</div>
+            <p>No text checked yet</p>
+            <small>Enter text in the Translator tab and click "Check Grammar"</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────────────────────
+         AI SUMMARY PANEL
+    ───────────────────────────────────────────────────── -->
+    <section data-panel="summary" role="tabpanel" aria-labelledby="tab-summary" id="panel-summary">
+      <div class="summary-section" style="display:block">
+        <h2 class="section-title">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" style="color:var(--primary)">
+            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+          </svg>
+          AI Summary
+        </h2>
+        <p style="color:var(--text-secondary);margin-bottom:var(--sp-4);font-size:14px">
+          Uses local extractive AI to generate a concise summary of your text. No API keys or login required.
+        </p>
+        <div style="display:flex;gap:var(--sp-3);align-items:center;margin-bottom:var(--sp-5);flex-wrap:wrap">
+          <button id="summary-btn" class="btn-primary">AI Summary</button>
+          <span style="font-size:13px;color:var(--text-muted)">Tip: Translate text first, then generate a summary</span>
+        </div>
+        <div id="summary-result" style="display:block">
+          <div class="history-empty" style="padding:var(--sp-8) 0">
+            <div class="history-empty-icon">🤖</div>
+            <p>No summary generated yet</p>
+            <small>Translate some text and click "AI Summary"</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────────────────────
+         IMAGE OCR PANEL
+    ───────────────────────────────────────────────────── -->
+    <section data-panel="ocr" role="tabpanel" aria-labelledby="tab-ocr" id="panel-ocr">
+      <div class="ocr-section">
+        <h2 class="section-title">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" style="color:var(--primary)">
+            <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+          </svg>
+          Image as Text Translate
+        </h2>
+        <p style="color:var(--text-secondary);margin-bottom:var(--sp-5);font-size:14px">
+          Upload an image containing text. The OCR engine will extract the text and send it to the Translator.
+          Works entirely in your browser — no server upload needed.
+        </p>
+
+        <!-- Upload area -->
+        <div id="upload-area" role="button" aria-label="Upload image" tabindex="0">
+          <div class="upload-icon">📷</div>
+          <h3>Drop an image here</h3>
+          <p>or click to browse files (JPEG, PNG, WEBP, BMP)</p>
+          <br/>
+          <button class="btn-secondary" id="paste-image-btn" style="margin-top:8px" aria-label="Paste image from clipboard">
+            📋 Paste from Clipboard
+          </button>
+        </div>
+
+        <!-- Hidden file input -->
+        <input
+          type="file"
+          id="image-upload"
+          accept="image/*"
+          style="display:none"
+          aria-label="Upload image file"
+        />
+
+        <!-- Image preview -->
+        <img id="ocr-preview" alt="Uploaded image preview" />
+
+        <!-- Progress bar -->
+        <div id="ocr-progress-wrap" role="progressbar" aria-label="OCR progress">
+          <div id="ocr-progress"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────────────────────
+         HISTORY PANEL
+    ───────────────────────────────────────────────────── -->
+    <section data-panel="history" role="tabpanel" aria-labelledby="tab-history" id="panel-history">
+      <div class="history-header">
+        <h2 class="section-title" style="margin:0">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" style="color:var(--primary)">
+            <path d="M13 3a9 9 0 1 0 9 9h-2a7 7 0 1 1-7-7v3l5-5-5-5v3z"/>
+          </svg>
+          Translation History
+          <small style="font-size:13px;color:var(--text-muted);font-weight:400">(<span id="history-count">0</span> entries)</small>
+        </h2>
+
+        <div class="history-search-wrap">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+            <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+          </svg>
+          <input
+            type="search"
+            id="history-search"
+            placeholder="Search history…"
+            aria-label="Search translation history"
+          />
+        </div>
+
+        <button id="history-clear-all" class="btn-secondary" style="color:var(--red);border-color:var(--red)" aria-label="Clear all history">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+            <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+          </svg>
+          Clear All
+        </button>
+      </div>
+
+      <div id="history-list" role="list" aria-label="Translation history list"></div>
+    </section>
+
+    <!-- ─────────────────────────────────────────────────────
+         ABOUT DEVELOPER PANEL
+    ───────────────────────────────────────────────────── -->
+    <section data-panel="about" role="tabpanel" aria-labelledby="tab-about" id="panel-about">
+      <div class="about-section">
+        <div class="developer-card anim-slide-up">
+          <div class="developer-avatar-wrap">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQka4kTiBw0KRhR94jUcXm-T1d9nw5btoZ9OzeHWu_AfQ&s=10" alt="Harshad Teli" class="developer-avatar" />
+          </div>
+          <h1 class="developer-name">Harshad Teli</h1>
+          <p class="developer-title">Software Engineer & AI Developer</p>
+          <div class="developer-divider"></div>
+          <p class="developer-bio">
+            Passionate Full Stack & AI Engineer dedicated to building intelligent, high-performance web applications. Expert in seamlessly blending modern software architecture with cutting-edge generative AI to craft intuitive, scalable digital experiences.
+          </p>
+          <div class="developer-contact">
+            <a href="https://harshadteli.onrender.com" target="_blank" rel="noopener noreferrer" class="developer-link visit-now-btn" aria-label="Visit portfolio site">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+              </svg>
+              Visit Now
+            </a>
+            <a href="mailto:harshadteli697@gmail.com" class="developer-link email-btn">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+              harshadteli697@gmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════
+       MOBILE BOTTOM NAVIGATION BAR
+  ═══════════════════════════════════════════════════════ -->
+  <nav class="bottom-nav" role="tablist" aria-label="App Navigation">
+    <!-- Translator Tab -->
+    <button data-tab="translator" class="active" role="tab" aria-selected="true" aria-controls="panel-translator" id="tab-translator">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0014.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/>
+      </svg>
+      <span>Translate</span>
+    </button>
+
+    <!-- Grammar Tab -->
+    <button data-tab="grammar" role="tab" aria-selected="false" aria-controls="panel-grammar" id="tab-grammar">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
+      </svg>
+      <span>Grammar</span>
+      <span id="grammar-badge" style="display:none">0</span>
+    </button>
+
+    <!-- Summary Tab -->
+    <button data-tab="summary" role="tab" aria-selected="false" aria-controls="panel-summary" id="tab-summary">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+      </svg>
+      <span>Summary</span>
+    </button>
+
+    <!-- Image OCR Tab -->
+    <button data-tab="ocr" role="tab" aria-selected="false" aria-controls="panel-ocr" id="tab-ocr">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+      </svg>
+      <span>OCR</span>
+    </button>
+
+    <!-- History Tab -->
+    <button data-tab="history" role="tab" aria-selected="false" aria-controls="panel-history" id="tab-history">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M13 3a9 9 0 1 0 9 9h-2a7 7 0 1 1-7-7v3l5-5-5-5v3z"/>
+      </svg>
+      <span>History</span>
+    </button>
+
+    <!-- About Developer Tab -->
+    <button data-tab="about" role="tab" aria-selected="false" aria-controls="panel-about" id="tab-about">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+      </svg>
+      <span>About</span>
+    </button>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════
+       CHATBOT FAB + PANEL
+  ═══════════════════════════════════════════════════════ -->
+
+  <!-- Floating Action Button -->
+  <button id="chatbot-fab" aria-label="Open AI chatbot" aria-expanded="false">
+    <span class="fab-icon-open">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+      </svg>
+    </span>
+    <span class="fab-icon-close">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+      </svg>
+    </span>
+  </button>
+
+  <!-- Chatbot Panel -->
+  <div id="chatbot-panel" role="dialog" aria-modal="true" aria-label="AI Chatbot">
+    <!-- Header -->
+    <div class="chatbot-header">
+      <div class="chatbot-avatar">🤖</div>
+      <div class="chatbot-info">
+        <h4>AI Assistant</h4>
+        <span><span class="chatbot-online-dot"></span>Online — Ask me anything</span>
+      </div>
+      <div class="chatbot-header-actions">
+        <button id="chatbot-clear" aria-label="Clear chat history" title="Clear chat">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+            <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+          </svg>
+        </button>
+        <button id="chatbot-close" aria-label="Close chatbot" title="Close">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Messages -->
+    <div id="chatbot-messages" role="log" aria-live="polite" aria-label="Chat messages"></div>
+
+    <!-- Input row -->
+    <div class="chatbot-input-row">
+      <input
+        type="text"
+        id="chatbot-input"
+        placeholder="Ask me anything…"
+        aria-label="Chat message input"
+        autocomplete="off"
+      />
+      <button id="chatbot-send" aria-label="Send message">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Toast container (populated by JS) -->
+  <div id="toast-container" role="alert" aria-live="assertive" aria-atomic="true"></div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SCRIPTS (order matters!)
+  ═══════════════════════════════════════════════════════ -->
+  <script src="https://aitranslatorlan.vercel.app/assets/API/config.js" charset="utf-8"></script>
+  <script src="https://aitranslatorlan.vercel.app/assets/JS/utils.js" charset="utf-8"></script>
+  <script src="https://aitranslatorlan.vercel.app/assets/JS/theme.js" charset="utf-8"></script>
+  <script src="https://aitranslatorlan.vercel.app/assets/JS/translator.js" charset="utf-8"></script>
+  <script src="https://aitranslatorlan.vercel.app/assets/JS/voice.js" charset="utf-8"></script>
+  <script src="https://aitranslatorlan.vercel.app/assets/JS/tts.js" charset="utf-8"></script>
+  <script src="https://aitranslatorlan.vercel.app/assets/JS/imageOCR.js" charset="utf-8"></script>
+  <script src="https://aitranslatorlan.vercel.app/assets/JS/history.js" charset="utf-8"></script>
+  <script src="https://aitranslatorlan.vercel.app/assets/JS/grammar.js" charset="utf-8"></script>
+  <script src="https://aitranslatorlan.vercel.app/assets/JS/summary.js" charset="utf-8"></script>
+  <script src="https://aitranslatorlan.vercel.app/assets/JS/chatbot.js" charset="utf-8"></script>
+  <script src="https://aitranslatorlan.vercel.app/assets/JS/app.js" charset="utf-8"></script>
+
+  <!-- Summary section visibility fix -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Show summary result panel when needed
+      const summaryBtn = document.getElementById("summary-btn");
+      if (summaryBtn) {
+        summaryBtn.addEventListener("click", () => {
+          const section = document.getElementById("summary-section");
+          if (section) section.style.display = "block";
+        });
+      }
+
+      // Also wire grammar tab's check-btn to show grammar panel inline
+      const grammarBtnTranslator = document.querySelectorAll("#grammar-check-btn");
+      grammarBtnTranslator.forEach(btn => {
+        btn.addEventListener("click", () => {
+          // Switch to grammar tab
+          const grammarTab = document.querySelector('[data-tab="grammar"]');
+          if (grammarTab) grammarTab.click();
+        }, { once: false });
+      });
+
+      // Synchronize Bottom Nav Active Classes with global navigation clicks
+      const tabButtons = document.querySelectorAll(".bottom-nav button");
+      tabButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          tabButtons.forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
