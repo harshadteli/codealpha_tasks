@@ -1,0 +1,45 @@
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# VS Code workspace and settings
+.vscode/
+
+# Node / package manager artifacts (if added later)
+node_modules/
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+
+# Environment / secret files
+.env
+.env.*
+
+# Build output (common web app patterns)
+dist/
+build/
+coverage/
+
+# Misc
+*.log
+*.tmp
+*.bak
+*.swp
+
+# macOS files
+.AppleDouble
+.LSOverride
+
+# Windows image file caches
+ehthumbs.db
+Icon?
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Android package files (if you add an APK for distribution)
+*.apk
