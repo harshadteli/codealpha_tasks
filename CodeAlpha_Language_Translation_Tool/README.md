@@ -55,7 +55,7 @@ AI Smart Translator is a browser-based web app for fast, AI-enhanced language tr
 This application is distributed as an APK file for direct installation on Android devices. 
 
 <p align="center">
-  <a href="YOUR_APK_DOWNLOAD_LINK_HERE">
+  <a href="https://github.com/harshadteli/codealpha_tasks/releases/tag/v1.0.0">
     <img src="https://img.shields.io/badge/📥_Visit Now-4285F4?style=for-the-badge&logo=android&logoColor=white&labelColor=1a73e8" alt="Download APK">
   </a>
 </p>
