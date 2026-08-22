@@ -2,6 +2,8 @@
 
 **AI Mitra** is an intelligent, multilingual FAQ Chatbot built for **D. Y. Patil School of Engineering and Management (Kasba Bavda, Kolhapur)**. It provides automated answers to student inquiries regarding admissions, fee structure, scholarships, hostels, placements, and campus facilities. It also features a fully-featured, secure Admin Analytics Control Center to track usage, monitor leads, and update FAQs in real time.
 
+Visit at https://dypsemai2.onrender.com/
+
 ---
 
 ## 🚀 Key Features
