@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DYPSEM AI Mitra</title>
+  <!-- Added Custome Meta tags for SEO and Social Sharing  -->
+  <meta name="description" content="DYP-SEM AI Mitra is an intelligent chatbot designed to assist students and visitors with queries related to D.Y. Patil College of Engineering" />
+  <meta name="og:description" content="DYP-SEM AI Mitra is an intelligent chatbot designed to assist students and visitors with queries related to D.Y. Patil College of Engineering" />
+  <!-- <meta name="description"
+    content="Discover Harshad Teli's portfolio, showcasing web development projects, skills, and creative technical works."> -->
+ <!-- <meta name="keywords"
+    content="Portfolio, Web Development, Software Engineer, Harshad Teli, Projects, Skills, Creative Work"> -->
+  <meta name="subject" content="dypsem chatbot">
+  <meta name="copyright" content="Harshad Teli">
+  <meta name="language" content="English">
+  <meta name="robots" content="index,follow">
+  <meta property="og:image" content="https://dypgroup.edu.in/wp-content/uploads/2020/01/DYPCET.jpg">
+
+  <!-- Google Material Icons -->
+
+  <!-- Disclaimer Popup Styles -->
+  <style>
+    /* === Popup Overlay === */
+    #disclaimer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(32, 33, 36, 0.65);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      box-sizing: border-box;
+      animation: overlayFadeIn 0.35s ease;
+    }
+    @keyframes overlayFadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    /* === Modal Card === */
+    #disclaimer-modal {
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.22);
+      width: 100%;
+      max-width: 420px;
+      max-height: calc(100vh - 32px);
+      overflow-y: auto;
+      box-sizing: border-box;
+      animation: modalSlideUp 0.38s cubic-bezier(0.34,1.56,0.64,1);
+      font-family: 'Google Sans', 'Roboto', sans-serif;
+    }
+    @keyframes modalSlideUp {
+      from { opacity: 0; transform: translateY(40px) scale(0.96); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    /* === Header Banner === */
+    #disclaimer-modal .popup-header {
+      background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
+      padding: 24px 20px 18px;
+      text-align: center;
+    }
+    #disclaimer-modal .popup-header img.dev-avatar {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255,255,255,0.8);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+      margin-bottom: 10px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      background: #e8f0fe;
+    }
+    #disclaimer-modal .popup-header .popup-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 20px;
+      padding: 3px 10px;
+      font-size: 0.7rem;
+      color: #e8f0fe;
+      font-weight: 500;
+      letter-spacing: 0.4px;
+      margin-bottom: 8px;
+    }
+    #disclaimer-modal .popup-header h2 {
+      color: #ffffff;
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin: 0 0 4px;
+      word-break: break-word;
+    }
+    #disclaimer-modal .popup-header p.dev-email {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.78rem;
+      margin: 0;
+      word-break: break-all;
+    }
+    /* === Body === */
+    #disclaimer-modal .popup-body {
+      padding: 18px 20px 14px;
+      box-sizing: border-box;
+    }
+    #disclaimer-modal .popup-body .warn-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #b3261e;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    #disclaimer-modal .popup-body .warn-title .material-icons {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    #disclaimer-modal .popup-body .warn-box {
+      background: #fef7f0;
+      border-left: 4px solid #f9ab00;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 0.82rem;
+      color: #3c4043;
+      line-height: 1.6;
+      margin-bottom: 12px;
+      box-sizing: border-box;
+    }
+    #disclaimer-modal .popup-body .info-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 4px;
+    }
+    #disclaimer-modal .popup-body .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #e8f0fe;
+      color: #1a73e8;
+      border-radius: 20px;
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    #disclaimer-modal .popup-body .chip .material-icons {
+      font-size: 0.88rem;
+    }
+    /* === Footer === */
+    #disclaimer-modal .popup-footer {
+      padding: 10px 20px 20px;
+      display: flex;
+      justify-content: flex-end;
+      box-sizing: border-box;
+    }
+    #btn-close-disclaimer {
+      background: #1a73e8;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 26px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: 0.3px;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+    #btn-close-disclaimer:hover {
+      background: #1557b0;
+      box-shadow: 0 4px 14px rgba(26,115,232,0.35);
+      transform: translateY(-1px);
+    }
+    #btn-close-disclaimer:active { transform: translateY(0); }
+
+    /* === Mobile: screens < 480px === */
+    @media (max-width: 480px) {
+      #disclaimer-overlay { padding: 12px; }
+      #disclaimer-modal {
+        border-radius: 14px;
+        max-height: calc(100vh - 24px);
+      }
+      #disclaimer-modal .popup-header { padding: 18px 14px 14px; }
+      #disclaimer-modal .popup-header img.dev-avatar { width: 62px; height: 62px; }
+      #disclaimer-modal .popup-header h2 { font-size: 0.95rem; }
+      #disclaimer-modal .popup-header p.dev-email { font-size: 0.72rem; }
+      #disclaimer-modal .popup-body { padding: 14px 14px 10px; }
+      #disclaimer-modal .popup-body .warn-box { font-size: 0.79rem; padding: 10px 12px; }
+      #disclaimer-modal .popup-footer { padding: 8px 14px 16px; }
+      #btn-close-disclaimer { padding: 9px 20px; font-size: 0.84rem; }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <!-- ===== DISCLAIMER POPUP MODAL ===== -->
+  <div id="disclaimer-overlay" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+    <div id="disclaimer-modal">
+
+      <!-- Header with Developer Info -->
+      <div class="popup-header">
+        <img
+          class="dev-avatar"
+          src="https://thumbs.dreamstime.com/b/portrait-successful-programmer-d-character-game-developer-coder-guy-uses-computer-laptop-ai-generative-298853322.jpg"
+          alt="Developer Avatar"
+          onerror="this.src='https://ui-avatars.com/api/?name=Harshad+Teli&background=1a73e8&color=fff&size=128'"
+        >
+        <div class="popup-badge">
+          <span class="material-icons" style="font-size:0.85rem;">verified</span>
+          Educational AI Tool
+        </div>
+        <h2 id="popup-title">AI Mitra — DYPSEM Chatbot</h2>
+        <p class="dev-email">Developed by <strong>Harshad Teli</strong> &nbsp;|&nbsp; harshadteli697@gmail.com</p>
+      </div>
+
+      <!-- Warning Body -->
+      <div class="popup-body">
+        <div class="warn-title">
+          <span class="material-icons">warning_amber</span>
+          Important Disclaimer
+        </div>
+        <div class="warn-box">
+          This AI chatbot is designed <strong>exclusively for educational and informational purposes</strong> related to
+          D.Y. Patil School of Engineering &amp; Management, Kasba Bavda, Kolhapur.
+          <br><br>
+          🚫 It is <strong>NOT intended for official organizational, administrative, or commercial use</strong>.
+          Responses are AI-generated and may not always reflect the latest or official information.
+          Always verify critical details with the institution directly.
+          <br><br>
+          By clicking <em>"I Understand"</em>, you acknowledge that this tool is a student-built academic project.
+        </div>
+        <div class="info-chips">
+          <span class="chip"><span class="material-icons">school</span> Academic Project</span>
+          <span class="chip"><span class="material-icons">smart_toy</span> AI-Powered</span>
+          <span class="chip"><span class="material-icons">translate</span> Multilingual</span>
+          <span class="chip"><span class="material-icons">lock</span> Non-Commercial</span>
+        </div>
+      </div>
+
+      <!-- Close Button -->
+      <div class="popup-footer">
+        <button id="btn-close-disclaimer" onclick="closeDisclaimer()">I Understand &nbsp;✓</button>
+      </div>
+
+    </div>
+  </div>
+  <!-- ===== END DISCLAIMER POPUP ===== -->
+
+  <!-- Disclaimer JS -->
+  <script>
+    function closeDisclaimer() {
+      const overlay = document.getElementById('disclaimer-overlay');
+      overlay.style.transition = 'opacity 0.25s ease';
+      overlay.style.opacity = '0';
+      setTimeout(() => overlay.remove(), 260);
+    }
+    // Allow closing by clicking the dark overlay background
+    document.getElementById('disclaimer-overlay').addEventListener('click', function(e) {
+      if (e.target === this) closeDisclaimer();
+    });
+    // Allow closing with the Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeDisclaimer();
+    });
+  </script>
+
+  <!-- Main Application Wrapper -->
+  <div class="app-container">
+    
+    <!-- Sidebar Navigation (Desktop) -->
+    <aside class="sidebar">
+      <div class="brand">
+        <img src="https://dypgroup.edu.in/wp-content/uploads/2020/01/DYPCET.jpg" class="brand-logo" alt="DY Patil Logo" style="object-fit: cover; background: white;">
+        <div class="brand-title-info">
+          <div class="brand-name">DYPSEM</div>
+          <div class="brand-sub">Kasba Bavda, Kolhapur</div>
+        </div>
+      </div>
+      
+      <nav style="flex-grow: 1;">
+        <ul class="nav-links">
+          <li>
+            <div id="nav-chat" class="nav-item active">
+              <span class="material-icons">chat</span>
+              <span>AI Mitra Chat</span>
+            </div>
+          </li>
+          <li>
+            <div id="nav-admin" class="nav-item">
+              <span class="material-icons">dashboard</span>
+              <span>Admin Dashboard</span>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <button id="theme-toggle" class="theme-toggle-btn">
+          <span>Dark Mode</span>
+          <span class="material-icons" id="theme-icon">dark_mode</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Mobile Navigation Bar (Bottom / Top Toggle) -->
+    <nav class="mobile-nav-bar">
+      <a href="#" id="mobile-nav-chat" class="mobile-nav-item active">
+        <span class="material-icons" style="vertical-align: middle; margin-right: 4px;">chat</span>Chat
+      </a>
+      <a href="#" id="mobile-nav-admin" class="mobile-nav-item">
+        <span class="material-icons" style="vertical-align: middle; margin-right: 4px;">dashboard</span>Admin
+      </a>
+      <a href="#" id="mobile-theme-toggle" class="mobile-nav-item">
+        <span class="material-icons" id="mobile-theme-icon" style="vertical-align: middle;">dark_mode</span>
+      </a>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="main-content">
+      
+      <!-- 1. CHAT SCREEN -->
+      <section id="screen-chat" class="screen chat-screen active">
+        <header class="chat-header">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <img src="https://dypgroup.edu.in/wp-content/uploads/2020/01/DYPCET.jpg" alt="DY Patil Logo" style="width: 38px; height: 38px; border-radius: 50%; object-fit: cover; box-shadow: 0 2px 5px rgba(0,0,0,0.15); background: white;">
+            <div class="chat-title-info">
+              <div class="chat-title">AI Mitra Chatbot</div>
+              <div class="chat-status">Online</div>
+            </div>
+          </div>
+          <div class="header-actions">
+            <!-- Language Selector -->
+            <select id="chat-lang" class="lang-selector">
+              <option value="en">English</option>
+              <option value="mr">मराठी (Marathi)</option>
+              <option value="hi">हिंदी (Hindi)</option>
+            </select>
+          </div>
+        </header>
+
+        <!-- Message Window -->
+        <div class="chat-messages" id="chat-messages">
+          <!-- Welcome Message is injected by JS -->
+        </div>
+
+        <!-- Quick Replies Pill Box -->
+        <div class="quick-replies-area">
+          <div class="suggested-chips-container" id="quick-reply-container">
+            <!-- Populated via Javascript -->
+          </div>
+        </div>
+
+        <!-- Chat Input Bar -->
+        <footer class="chat-input-area">
+          <div class="input-wrapper">
+            <input type="text" id="chat-input" class="chat-input" placeholder="Type a message or click mic..." autocomplete="off">
+            <button id="voice-dictate" class="voice-btn" title="Speak your question">
+              <span class="material-icons">mic</span>
+            </button>
+          </div>
+          <button id="chat-send" class="send-btn" title="Send message">
+            <span class="material-icons">send</span>
+          </button>
+        </footer>
+      </section>
+
+      <!-- 2. ADMIN DASHBOARD SCREEN -->
+      <section id="screen-admin" class="screen admin-screen" style="padding: 0; flex-direction: column;">
+        <!-- Admin Login Container -->
+        <div id="admin-login-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; width: 100%; padding: 24px; box-sizing: border-box;">
+          <div class="admin-card" style="width: 100%; max-width: 400px; padding: 32px; box-sizing: border-box;">
+            <div style="text-align: center; margin-bottom: 24px;">
+              <span class="material-icons" style="font-size: 3rem; color: var(--primary-color); background-color: var(--primary-light); padding: 16px; border-radius: 50%;">admin_panel_settings</span>
+              <h3 style="margin-top: 16px; font-size: 1.3rem;">Admin Control Center</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Sign in to view stats and update FAQs</p>
+            </div>
+            
+            <form id="admin-login-form" class="faq-form">
+              <div id="login-error-alert" style="display: none; padding: 10px 14px; background-color: #fce8e6; border: 1px solid #fad2cf; color: #c5221f; border-radius: 8px; font-size: 0.85rem; font-weight: 500; margin-bottom: 16px; text-align: center;"></div>
+              
+              <div class="form-group">
+                <label for="admin-email">Email Address</label>
+                <input type="email" id="admin-email" class="form-control" placeholder="dypsem@gmail.com" required>
+              </div>
+              
+              <div class="form-group" style="margin-top: 12px;">
+                <label for="admin-password">Password</label>
+                <input type="password" id="admin-password" class="form-control" placeholder="••••••••" required>
+              </div>
+              
+              <button type="submit" class="btn-submit" style="margin-top: 20px; width: 100%; font-weight: 600;">Sign In</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Admin Dashboard Container (Hidden by default) -->
+        <div id="admin-dashboard-container" style="display: none; flex-direction: column; width: 100%; height: 100%; overflow-y: auto; padding: 32px; box-sizing: border-box;">
+          <header class="admin-header">
+            <div class="admin-title">
+              <h2>FAQ Analytics & Management</h2>
+              <p>Monitor chatbot usage and update FAQ entries in real-time</p>
+            </div>
+            <div style="display: flex; gap: 12px;">
+              <button id="btn-admin-logout" class="action-btn" style="background-color: var(--card-bg); color: var(--text-color); border: 1px solid var(--border-color); display: flex; align-items: center; gap: 8px; font-weight: 600; padding: 10px 16px;">
+                <span class="material-icons" style="font-size: 1.15rem;">logout</span>Sign Out
+              </button>
+              <button id="btn-add-faq" class="action-btn" style="padding: 10px 20px; font-weight: 600; display: flex; align-items: center; gap: 8px;">
+                <span class="material-icons">add</span>Add FAQ
+              </button>
+            </div>
+          </header>
+
+          <!-- Stats Overview Row -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon">
+                <span class="material-icons">chat_bubble</span>
+              </div>
+              <div class="stat-info">
+                <span class="stat-value" id="stat-total-chats">0</span>
+                <span class="stat-label">Total Queries</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon leads">
+                <span class="material-icons">people</span>
+              </div>
+              <div class="stat-info">
+                <span class="stat-value" id="stat-total-leads">0</span>
+                <span class="stat-label">BTech Leads</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon feedback">
+                <span class="material-icons">thumb_up</span>
+              </div>
+              <div class="stat-info">
+                <span class="stat-value" id="stat-feedback-pct">100%</span>
+                <span class="stat-label">Positive Feedback</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon" style="background-color: #fce8e6; color: #d93025;">
+                <span class="material-icons">error_outline</span>
+              </div>
+              <div class="stat-info">
+                <span class="stat-value" id="stat-total-unanswered">0</span>
+                <span class="stat-label">Unanswered Qs</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dashboard Secondary Content Layout -->
+          <div class="admin-sections">
+            <!-- Unanswered Questions -->
+            <div class="admin-card">
+              <div class="card-title">
+                <span>Unresolved User Queries</span>
+                <span class="material-icons" style="color: var(--text-muted);">question_answer</span>
+              </div>
+              <div class="data-table-container">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Query</th>
+                      <th>Lang</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="table-unanswered-body">
+                    <!-- Injected via JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- BTech Leads/Student Registrations -->
+            <div class="admin-card">
+              <div class="card-title">
+                <span>Smart Form Leads (B.Tech Inquiries)</span>
+                <span class="material-icons" style="color: var(--success);">assignment_turned_in</span>
+              </div>
+              <div class="data-table-container">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>12th %</th>
+                      <th>Email</th>
+                    </tr>
+                  </thead>
+                  <tbody id="table-leads-body">
+                    <!-- Injected via JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Manager Section -->
+          <div class="faq-manager-section">
+            <div class="faq-list-header">
+              <h3>Manage College FAQs</h3>
+              <input type="text" id="faq-search" class="form-control search-faq-input" placeholder="Search FAQs...">
+            </div>
+            <div class="faq-items-grid" id="faq-grid">
+              <!-- Prepopulated FAQ cards are loaded dynamically -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- FAQ ADD/EDIT MODAL -->
+  <div class="modal" id="faq-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-title-text">Add New FAQ</h4>
+        <button class="close-modal" id="modal-close">&times;</button>
+      </div>
+      <form class="faq-form" id="faq-details-form">
+        <input type="hidden" id="form-faq-id">
+        <div class="form-group">
+          <label for="form-question">Question (English)</label>
+          <input type="text" id="form-question" class="form-control" placeholder="e.g. What is the intake for Computer Engineering?" required>
+        </div>
+        <div class="form-group">
+          <label for="form-answer">Answer (English)</label>
+          <textarea id="form-answer" class="form-control" placeholder="e.g. The intake is 120 seats per academic year." required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="form-category">Category</label>
+          <select id="form-category" class="form-control">
+            <option value="General">General</option>
+            <option value="Academics">Academics</option>
+            <option value="Fees">Fees</option>
+            <option value="Scholarships">Scholarships</option>
+            <option value="Admissions">Admissions</option>
+            <option value="Hostel">Hostel</option>
+            <option value="Campus Life">Campus Life</option>
+            <option value="Placements">Placements</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="form-keywords">Keywords (Comma separated)</label>
+          <input type="text" id="form-keywords" class="form-control" placeholder="e.g. computer, seats, intake, capacity">
+        </div>
+        <div class="form-group">
+          <label for="form-pdf">Brochure/PDF URL (Optional)</label>
+          <input type="url" id="form-pdf" class="form-control" placeholder="e.g. https://dypgroup.edu.in/.../Brochure.pdf">
+        </div>
+        <button type="submit" class="btn-submit" id="btn-form-save">Save FAQ</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Javascript File -->
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

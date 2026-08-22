@@ -1,0 +1,382 @@
+{
+  "queries": [
+    {
+      "query": "marathi",
+      "english_query": "marathi",
+      "lang": "en",
+      "matched_id": null,
+      "score": 0.0,
+      "timestamp": "2026-08-09T00:18:05.357031"
+    },
+    {
+      "query": "CAP Process",
+      "english_query": "CAP Process",
+      "lang": "en",
+      "matched_id": 5,
+      "score": 0.4884301819283322,
+      "timestamp": "2026-08-09T00:18:16.614515"
+    },
+    {
+      "query": "jk",
+      "english_query": "jk",
+      "lang": "en",
+      "matched_id": null,
+      "score": 0.0,
+      "timestamp": "2026-08-09T00:23:09.116016"
+    },
+    {
+      "query": "What is the contact email and phone number of the college?",
+      "english_query": "What is the contact email and phone number of the college?",
+      "lang": "en",
+      "matched_id": 15,
+      "score": 1.1471163658608206,
+      "timestamp": "2026-08-09T00:24:11.606963"
+    },
+    {
+      "query": "Scholarships",
+      "english_query": "Scholarships",
+      "lang": "en",
+      "matched_id": 4,
+      "score": 0.8016199454502859,
+      "timestamp": "2026-08-09T00:32:27.224155"
+    },
+    {
+      "query": "CAP Process",
+      "english_query": "CAP Process",
+      "lang": "en",
+      "matched_id": 5,
+      "score": 0.4884301819283322,
+      "timestamp": "2026-08-09T12:27:40.079564"
+    },
+    {
+      "query": "What is the full name of the college and where is it located?",
+      "english_query": "What is the full name of the college and where is it located?",
+      "lang": "en",
+      "matched_id": 1,
+      "score": 0.8957736955992734,
+      "timestamp": "2026-08-09T12:28:22.768600"
+    },
+    {
+      "query": "बीटेक फी",
+      "english_query": "BTech Fees",
+      "lang": "mr",
+      "matched_id": 3,
+      "score": 0.9576514625234251,
+      "timestamp": "2026-08-09T12:29:08.565668"
+    },
+    {
+      "query": "B.Tech अभियांत्रिकीसाठी पात्रता निकष काय आहेत?",
+      "english_query": "What is the eligibility criteria for B.Tech Engineering?",
+      "lang": "mr",
+      "matched_id": 6,
+      "score": 0.8766617793317768,
+      "timestamp": "2026-08-09T12:29:34.078960"
+    },
+    {
+      "query": "BTech Fees",
+      "english_query": "BTech Fees",
+      "lang": "en",
+      "matched_id": 3,
+      "score": 0.9576514625234251,
+      "timestamp": "2026-08-09T12:37:25.732008"
+    },
+    {
+      "query": "Are there hostel facilities for outstation students, and what are the fees?",
+      "english_query": "Are there hostel facilities for outstation students, and what are the fees?",
+      "lang": "en",
+      "matched_id": 7,
+      "score": 0.8673491585718834,
+      "timestamp": "2026-08-09T12:37:54.492667"
+    },
+    {
+      "query": "what is my name",
+      "english_query": "what is my name",
+      "lang": "en",
+      "matched_id": 1,
+      "score": 0.5864530037968804,
+      "timestamp": "2026-08-09T12:39:29.365971"
+    },
+    {
+      "query": "What is the eligibility criteria for B.Tech engineering?",
+      "english_query": "What is the eligibility criteria for B.Tech engineering?",
+      "lang": "en",
+      "matched_id": 6,
+      "score": 0.8766617793317768,
+      "timestamp": "2026-08-09T12:39:48.155339"
+    },
+    {
+      "query": "form",
+      "english_query": "form",
+      "lang": "en",
+      "matched_id": null,
+      "score": 0.0,
+      "timestamp": "2026-08-09T12:40:20.543143"
+    },
+    {
+      "query": "Scholarships",
+      "english_query": "Scholarships",
+      "lang": "en",
+      "matched_id": 4,
+      "score": 0.8016199454502859,
+      "timestamp": "2026-08-09T12:41:12.528984"
+    },
+    {
+      "query": "What is the full name of the college and where is it located?",
+      "english_query": "What is the full name of the college and where is it located?",
+      "lang": "en",
+      "matched_id": 1,
+      "score": 0.8957736955992734,
+      "timestamp": "2026-08-09T12:42:06.296435"
+    },
+    {
+      "query": "Hi",
+      "english_query": "Hi",
+      "lang": "en",
+      "matched_id": null,
+      "score": 0.0,
+      "timestamp": "2026-08-09T12:42:23.409335"
+    },
+    {
+      "query": "What is the contact email and phone number of the college?",
+      "english_query": "What is the contact email and phone number of the college?",
+      "lang": "en",
+      "matched_id": 15,
+      "score": 1.146574751605181,
+      "timestamp": "2026-08-09T12:42:32.435452"
+    },
+    {
+      "query": "Does the college provide bus/transport services?",
+      "english_query": "Does the college provide bus/transport services?",
+      "lang": "en",
+      "matched_id": 11,
+      "score": 0.5906615504268258,
+      "timestamp": "2026-08-09T12:42:51.990925"
+    },
+    {
+      "query": "Harshad Teli",
+      "english_query": "Harshad Teli",
+      "lang": "hi",
+      "matched_id": null,
+      "score": 0.0,
+      "timestamp": "2026-08-09T12:43:33.946508"
+    },
+    {
+      "query": "हॉस्टल की सुविधा",
+      "english_query": "Hostel facilities",
+      "lang": "hi",
+      "matched_id": 7,
+      "score": 0.8253307597009134,
+      "timestamp": "2026-08-09T12:43:53.634918"
+    },
+    {
+      "query": "कॉलेज में कौन सी बी.टेक इंजीनियरिंग शाखाएँ प्रदान की जाती हैं?",
+      "english_query": "Which B.Tech Engineering branches are offered in the college?",
+      "lang": "hi",
+      "matched_id": 2,
+      "score": 1.0471112273128207,
+      "timestamp": "2026-08-09T12:44:25.232264"
+    },
+    {
+      "query": "कॉलेज का समय और कार्य दिवस क्या हैं?",
+      "english_query": "What are the college timings and working days?",
+      "lang": "hi",
+      "matched_id": 10,
+      "score": 1.111188545794283,
+      "timestamp": "2026-08-09T12:44:51.755434"
+    },
+    {
+      "query": "कॉलेज का पूरा नाम क्या है और यह कहाँ स्थित है?",
+      "english_query": "What is the full name of the college and where is it located?",
+      "lang": "hi",
+      "matched_id": 1,
+      "score": 0.8957736955992734,
+      "timestamp": "2026-08-09T12:45:19.073207"
+    },
+    {
+      "query": "हर्षद मेहता",
+      "english_query": "Harshad Mehta",
+      "lang": "mr",
+      "matched_id": null,
+      "score": 0.0,
+      "timestamp": "2026-08-09T12:46:48.907170"
+    },
+    {
+      "query": "वसतिगृह सुविधा",
+      "english_query": "Hostel facilities",
+      "lang": "mr",
+      "matched_id": 7,
+      "score": 0.8253307597009134,
+      "timestamp": "2026-08-09T12:48:47.141579"
+    },
+    {
+      "query": "B.Tech Form",
+      "english_query": "B.Tech Form",
+      "lang": "mr",
+      "matched_id": 2,
+      "score": 0.40408281640003907,
+      "timestamp": "2026-08-09T12:49:27.934730"
+    },
+    {
+      "query": "B.Tech अभ्यासक्रमांसाठी फी संरचना काय आहे?",
+      "english_query": "What is the fee structure for B.Tech courses?",
+      "lang": "mr",
+      "matched_id": 3,
+      "score": 1.0411534289105862,
+      "timestamp": "2026-08-09T12:50:25.027023"
+    },
+    {
+      "query": "B.Tech अभियांत्रिकीसाठी पात्रता निकष काय आहेत?",
+      "english_query": "What is the eligibility criteria for B.Tech Engineering?",
+      "lang": "mr",
+      "matched_id": 6,
+      "score": 0.8766617793317768,
+      "timestamp": "2026-08-09T12:51:07.216002"
+    },
+    {
+      "query": "प्रवेश प्रक्रिया",
+      "english_query": "Admission process",
+      "lang": "mr",
+      "matched_id": 5,
+      "score": 0.7297325631202748,
+      "timestamp": "2026-08-09T12:54:26.117492"
+    },
+    {
+      "query": "अभियांत्रिकी प्रवेशासाठी कोणती कागदपत्रे आवश्यक आहेत?",
+      "english_query": "What documents are required for engineering admission?",
+      "lang": "mr",
+      "matched_id": 12,
+      "score": 0.7110177284283619,
+      "timestamp": "2026-08-09T12:55:06.895564"
+    },
+    {
+      "query": "अभी अप्लाई करें",
+      "english_query": "apply Now",
+      "lang": "hi",
+      "matched_id": 5,
+      "score": 0.5444704175757104,
+      "timestamp": "2026-08-09T12:57:20.792664"
+    },
+    {
+      "query": "हेलो",
+      "english_query": "Hi",
+      "lang": "hi",
+      "matched_id": null,
+      "score": 0.0,
+      "timestamp": "2026-08-09T12:58:09.053384"
+    },
+    {
+      "query": "अभी अप्लाई करें",
+      "english_query": "apply Now",
+      "lang": "hi",
+      "matched_id": 5,
+      "score": 0.5444704175757104,
+      "timestamp": "2026-08-09T13:05:33.430825"
+    },
+    {
+      "query": "अभी आवेदन करें",
+      "english_query": "apply now",
+      "lang": "hi",
+      "matched_id": 5,
+      "score": 0.5444704175757104,
+      "timestamp": "2026-08-09T13:06:10.043991"
+    }
+  ],
+  "unanswered": [
+    {
+      "id": 1,
+      "query": "marathi",
+      "english_query": "marathi",
+      "lang": "en",
+      "timestamp": "2026-08-09T00:18:05.357031",
+      "resolved": false
+    },
+    {
+      "id": 2,
+      "query": "jk",
+      "english_query": "jk",
+      "lang": "en",
+      "timestamp": "2026-08-09T00:23:09.116016",
+      "resolved": true
+    },
+    {
+      "id": 3,
+      "query": "form",
+      "english_query": "form",
+      "lang": "en",
+      "timestamp": "2026-08-09T12:40:20.543143",
+      "resolved": false
+    },
+    {
+      "id": 4,
+      "query": "Hi",
+      "english_query": "Hi",
+      "lang": "en",
+      "timestamp": "2026-08-09T12:42:23.409335",
+      "resolved": false
+    },
+    {
+      "id": 5,
+      "query": "Harshad Teli",
+      "english_query": "Harshad Teli",
+      "lang": "hi",
+      "timestamp": "2026-08-09T12:43:33.946508",
+      "resolved": false
+    },
+    {
+      "id": 6,
+      "query": "हर्षद मेहता",
+      "english_query": "Harshad Mehta",
+      "lang": "mr",
+      "timestamp": "2026-08-09T12:46:48.907170",
+      "resolved": false
+    },
+    {
+      "id": 7,
+      "query": "हेलो",
+      "english_query": "Hi",
+      "lang": "hi",
+      "timestamp": "2026-08-09T12:58:09.053384",
+      "resolved": false
+    }
+  ],
+  "feedback": [
+    {
+      "faq_id": 1,
+      "query": "What is the full name of the college and where is it located?",
+      "rating": "up",
+      "timestamp": "2026-08-09T12:28:25.623218"
+    },
+    {
+      "faq_id": 3,
+      "query": "बीटेक फी",
+      "rating": "down",
+      "timestamp": "2026-08-09T12:29:28.933622"
+    },
+    {
+      "faq_id": 1,
+      "query": "what is my name",
+      "rating": "up",
+      "timestamp": "2026-08-09T12:39:44.159102"
+    },
+    {
+      "faq_id": 1,
+      "query": "कॉलेज का पूरा नाम क्या है और यह कहाँ स्थित है?",
+      "rating": "up",
+      "timestamp": "2026-08-09T12:45:39.311974"
+    },
+    {
+      "faq_id": 5,
+      "query": "प्रवेश प्रक्रिया",
+      "rating": "up",
+      "timestamp": "2026-08-09T12:54:59.737976"
+    }
+  ],
+  "leads": [
+    {
+      "name": "हर्षद मेहता",
+      "marks": "78",
+      "email": "harshadteli697@gmail.com",
+      "timestamp": "2026-08-09T12:47:47.425614"
+    }
+  ]
+}

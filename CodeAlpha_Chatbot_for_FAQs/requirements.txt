@@ -1,0 +1,4 @@
+flask
+nltk
+deep-translator
+gunicorn

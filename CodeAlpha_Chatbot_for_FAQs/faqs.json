@@ -1,0 +1,235 @@
+[
+  {
+    "id": 1,
+    "question": "What is the full name of the college and where is it located?",
+    "answer": "The college name is D. Y. Patil School of Engineering and Management. It is located in the scenic campus at Kasba Bavda, Kolhapur, Maharashtra - 416006.",
+    "category": "General",
+    "keywords": [
+      "name",
+      "location",
+      "address",
+      "where",
+      "kolhapur",
+      "kasba bavda",
+      "route"
+    ]
+  },
+  {
+    "id": 2,
+    "question": "Which B.Tech engineering branches are offered at the college?",
+    "answer": "We offer B.Tech degrees in Computer Science and Engineering (CSE), Artificial Intelligence and Data Science (AI & DS), Civil Engineering, and Electrical Engineering.",
+    "category": "Academics",
+    "keywords": [
+      "branches",
+      "courses",
+      "btech",
+      "streams",
+      "departments",
+      "engineering"
+    ]
+  },
+  {
+    "id": 3,
+    "question": "What is the fee structure for B.Tech courses?",
+    "answer": "The average annual fee for B.Tech is approximately ₹1,02,000 per year. However, fees vary based on category and scholarship eligibility (e.g., TFWS, EBC, SC/ST). You can download our detailed fee structure PDF below.",
+    "category": "Fees",
+    "keywords": [
+      "fees",
+      "fee structure",
+      "cost",
+      "charge",
+      "payment",
+      "btech fees"
+    ],
+    "pdf_url": "https://dypgroup.edu.in/wp-content/uploads/2023/Fee-Structure.pdf"
+  },
+  {
+    "id": 4,
+    "question": "What scholarships or financial aid options are available?",
+    "answer": "Government scholarships are available for eligible students, including EBC (50% tuition fee waiver for open category with income < 8 LPA), TFWS (100% tuition fee waiver based on MHT-CET merit), and full category scholarships for SC, ST, NT, OBC, and VJNT students.",
+    "category": "Scholarships",
+    "keywords": [
+      "scholarship",
+      "ebc",
+      "tfws",
+      "concession",
+      "discount",
+      "caste scholarship",
+      "financial aid"
+    ]
+  },
+  {
+    "id": 5,
+    "question": "How can I apply for admission?",
+    "answer": "Admissions are processed through the Centralized Admission Process (CAP) governed by the State Common Entrance Test Cell, Maharashtra. You must register on the CET portal, participate in CAP rounds, and select our college code. To submit an inquiry directly, ask me to 'apply now'.",
+    "category": "Admissions",
+    "keywords": [
+      "apply",
+      "admission",
+      "registration",
+      "cap round",
+      "mht cet",
+      "admission process"
+    ]
+  },
+  {
+    "id": 6,
+    "question": "What is the eligibility criteria for B.Tech engineering?",
+    "answer": "Candidate must have passed HSC (12th Std) with Physics and Mathematics as compulsory subjects along with Chemistry/Biotechnology/Biology/Technical Vocational subject, securing at least 45% marks (40% for backward class categories) AND have a non-zero score in MHT-CET or JEE Main.",
+    "category": "Admissions",
+    "keywords": [
+      "eligibility",
+      "criteria",
+      "requirements",
+      "marks",
+      "cut off",
+      "12th standard",
+      "cet score"
+    ]
+  },
+  {
+    "id": 7,
+    "question": "Are there hostel facilities for outstation students, and what are the fees?",
+    "answer": "Yes, we have separate, fully-equipped hostels for boys and girls on campus. The facilities include 24/7 security, Wi-Fi, drinking water, and hot water. The hostel fees are approximately ₹45,000 per year, excluding mess charges.",
+    "category": "Hostel",
+    "keywords": [
+      "hostel",
+      "accommodation",
+      "stay",
+      "boys hostel",
+      "girls hostel",
+      "hostel fees",
+      "mess"
+    ]
+  },
+  {
+    "id": 8,
+    "question": "What is the placement record of the college?",
+    "answer": "D. Y. Patil School of Engineering and Management has an excellent placement record with a dedicated Training & Placement (T&P) cell. The highest package offered is ₹12 LPA, and the average package is ₹4.2 LPA. Key recruiters include TCS, Capgemini, Wipro, Infosys, and Cognizant.",
+    "category": "Placements",
+    "keywords": [
+      "placement",
+      "job",
+      "package",
+      "salary",
+      "companies",
+      "recruiters",
+      "highest package",
+      "average package",
+      "t&p"
+    ]
+  },
+  {
+    "id": 9,
+    "question": "Where can I download the college prospectus?",
+    "answer": "You can download the official college brochure/prospectus containing detailed intake, departments, infrastructure, and achievements by clicking the Prospectus button below.",
+    "category": "General",
+    "keywords": [
+      "prospectus",
+      "brochure",
+      "pamphlet",
+      "info booklet",
+      "pdf download"
+    ],
+    "pdf_url": "https://dypgroup.edu.in/wp-content/uploads/2023/Brochure.pdf"
+  },
+  {
+    "id": 10,
+    "question": "What are the college timings and working days?",
+    "answer": "The regular college hours are from 9:30 AM to 5:00 PM, Monday to Friday. Saturdays are reserved for extra-curricular activities, seminars, and special training sessions. Sunday is a holiday.",
+    "category": "General",
+    "keywords": [
+      "timing",
+      "college hours",
+      "working days",
+      "holiday",
+      "schedule",
+      "time"
+    ]
+  },
+  {
+    "id": 11,
+    "question": "Does the college provide bus/transport services?",
+    "answer": "Yes, college bus services run across all major routes in Kolhapur city and neighboring areas (like Ichalkaranji, Jaysingpur, and Kagal) for safe and comfortable commuting.",
+    "category": "General",
+    "keywords": [
+      "bus",
+      "transport",
+      "travel",
+      "commute",
+      "pickup",
+      "route"
+    ]
+  },
+  {
+    "id": 12,
+    "question": "What documents are required for engineering admission?",
+    "answer": "Required documents include: 10th & 12th Marksheets, MHT-CET/JEE Score Card, School Leaving Certificate, Domicile Certificate, Nationality Certificate. For category students: Caste Certificate, Caste Validity, and Non-Creamy Layer (if applicable).",
+    "category": "Admissions",
+    "keywords": [
+      "documents",
+      "certificate",
+      "leaving certificate",
+      "domicile",
+      "caste validity",
+      "lc",
+      "marksheet"
+    ]
+  },
+  {
+    "id": 13,
+    "question": "Is Direct Second Year B.Tech (DSE) admission available for diploma students?",
+    "answer": "Yes! Candidates who have passed a Diploma in Engineering and Technology with at least 45% marks (40% for reserved category) are eligible for direct admission to the second year of B.Tech (DSE).",
+    "category": "Admissions",
+    "keywords": [
+      "direct second year",
+      "dse",
+      "diploma",
+      "polytechnic",
+      "after diploma",
+      "lateral entry"
+    ]
+  },
+  {
+    "id": 14,
+    "question": "Are there sports and gym facilities on campus?",
+    "answer": "Absolutely! We promote physical fitness with a well-equipped gymnasium, an outdoor sports ground for cricket and football, and indoor sports facilities for table tennis, carrom, and chess.",
+    "category": "Campus Life",
+    "keywords": [
+      "sports",
+      "gym",
+      "ground",
+      "cricket",
+      "football",
+      "gymnasium",
+      "activities"
+    ]
+  },
+  {
+    "id": 15,
+    "question": "What is the contact email and phone number of the college?",
+    "answer": "You can reach the admission cell at info@dypgroup.edu.in or call us on +91 231 2601431 or +91 231 2601433 for direct inquiries.",
+    "category": "General",
+    "keywords": [
+      "contact",
+      "phone number",
+      "email",
+      "mobile number",
+      "call",
+      "office"
+    ]
+  },
+  {
+    "id": 16,
+    "question": "What is the intake capacity for B.Tech branches?",
+    "answer": "Our intake capacity is: Computer Science & Engineering (CSE): 120 seats, AI & Data Science (AI&DS): 60 seats, Civil Engineering: 60 seats, and Electrical Engineering: 60 seats.",
+    "category": "Academics",
+    "keywords": [
+      "intake",
+      "seats",
+      "capacity",
+      "how many seats",
+      "cse intake"
+    ]
+  }
+]
