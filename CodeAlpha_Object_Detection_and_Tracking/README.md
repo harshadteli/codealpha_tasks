@@ -85,9 +85,6 @@ During the configuration wizard, use the following settings:
   *(**Note:** Setting `--server.port $PORT` and `--server.address 0.0.0.0` is critical for Render to route external traffic to Streamlit).*
 - **Plan:** **Free** (or Starter CPU instance)
 
-### 4. Deploy!
-Click **Create Web Service**. Render will build the environment, install the packages from `requirements.txt`, and deploy the application. It will provide you with a public URL (e.g. `https://trackvision-ai.onrender.com`).
-
 ---
 
 ## ⚙️ How It Works (Project Flow)
