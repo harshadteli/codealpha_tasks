@@ -1,0 +1,50 @@
+# Python virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python cache and bytecode
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Build and packaging artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Streamlit / app runtime files
+.streamlit/
+
+# Generated media and outputs
+runs/
+output/
+results/
+logs/
+*.log
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+# YOLO / model weights
+*.pt
+*.onnx
+*.weights
+*.bin
+*.ckpt
+
+# Keep a specific local model file tracked if you intentionally want it in Git
+# !yolo11n.pt
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
